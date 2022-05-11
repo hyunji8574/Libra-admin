@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libra Admin</title>
+
+    <link rel="stylesheet" href="css/user-list.css">
+    <script src="index.js"></script>
+
+</head>
+
+<body>
+    <!-- 헤더 -->
+    <header class="header">
+        <h1 class="logo">
+            <a href="index.html">Libra</a>
+        </h1>
+        <ul class="address">
+            <li><a href="#">사용자 관리</a></li>
+            <li><a href="#">사용자 목록</a></li>
+        </ul>
+        <a href="#" onclick="script:history.back();" class="back">&lt; 뒤로가기</a>
+    </header>
+    <!-- 왼쪽 글로벌 네비게이션 -->
+    <nav class="lnb">
+        <!-- 선택된 경우 li에 on 클래스 추가 -->
+        <ul class="dep1">
+            <li class="on"><a href="#" onclick="script:return false;">사용자 관리</a>
+                <ul class="dep2">
+                    <li class="on"><a href="index.html">사용자 목록</a></li>
+                    <li><a href="#">거래 목록</a></li>
+                    <li><a href="#">제재 목록</a></li>
+                </ul>
+            </li>
+            <li><a href="#" onclick="script:return false;">시스템 로그</a>
+                <ul class="dep2">
+                    <li><a href="#">접속 로그</a></li>
+                    <li><a href="#">관리 로그</a></li>
+                    <li><a href="#">거래 로그</a></li>
+                    <li><a href="#">제재 로그</a></li>
+                </ul>
+            </li>
+            <li><a href="#">문의 내역</a></li>
+            <li><a href="#">관리자 설정</a></li>
+        </ul>
+    </nav>
+    <!-- 컨텐츠 영역 -->
+    <section class="content">
+        <h2 class="hidden">컨텐츠 영역</h2>
+        <!-- 검색 폼 -->
+        <div class="search clear-both">
+            <form action="#" method="get" id="search-form">
+                <select name="search-type" id="search-type">
+                    <option value="userNick" selected>닉네임</option>
+                    <option value="userNum">번호</option>
+                    <option value="userId">ID</option>
+                </select>
+                <input type="text" name="search-text" id="search-text" placeholder="검색어 입력">
+                <input type="submit" id="search-submit" value="검색">
+                <input type="submit" id="search-reset" value="검색결과 초기화">
+            </form>
+        </div>
+        <!-- 검색 필터 -->
+        <div class="filter clear-both">
+            <form action="#" method="get" id="filter-form">
+                <input type="reset" id="filter-reset" value="필터 초기화">
+                <table class="filter-table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                닉네임
+                            </td>
+                            <td colspan="3">
+                                <input type="checkbox" name="filter-nick-kor" id="filter-nick-kor">
+                                <label for="filter-nick-kor">한글 포함</label>
+                                <input type="checkbox" name="filter-nick-eng" id="filter-nick-eng">
+                                <label for="filter-nick-eng">영어 포함</label>
+                                <input type="checkbox" name="filter-nick-num" id="filter-nick-num">
+                                <label for="filter-nick-num">숫자 포함</label>
+                                <input type="checkbox" name="filter-nick-spe" id="filter-nick-spe">
+                                <label for="filter-nick-spe">특수문자 포함</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>가입일</td>
+                            <td class="table-line">
+                                <input type="date" name="filter-userDate-start" id="filter-userdate-start"
+                                    value="2021-06-27">
+                                <span>~</span>
+                                <input type="date" name="filter-userDate-end" id="filter-userdate-end"
+                                    value="2021-06-27">
+                            </td>
+                            <td>레벨</td>
+                            <td>
+                                <input type="number" name="filter-userLv-start" id="filter-userLv-start" value="0"
+                                    min="0">
+                                <span>~</span>
+                                <input type="number" name="filter-userLv-end" id="filter-userLv-end" value="10" min="0">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input class="hidden" type="submit" value="필터 적용">
+            </form>
+        </div>
+        <!-- 테이블 우측상단 페이지 네비게이션 -->
+        <div class="pager-top clear-both">
+            <form action="#" method="get" id="pager-top-form">
+                <input type="number" name="pageTo" id="pageTo" value="1" min="0">
+                <span>/</span>
+                <span class="max-page">999</span>
+                <span>페이지</span>
+                <input type="submit" value="이동">
+            </form>
+        </div>
+        <!-- 사용자 목록 테이블 -->
+        <table class="user-table clear-both">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>닉네임</th>
+                    <th>ID</th>
+                    <th>가입일</th>
+                    <th>레벨</th>
+                </tr>
+            </thead>
+            <!-- 사용자 리스트 -->
+            <!-- 10행 5열-->
+            <!-- 
+                    번호 닉네임 ID 가입일 레벨
+                 -->
+            <tbody>
+                <tr>
+                    <td class="userNum"><a href="user-info.html">1111111</a></td>
+                    <td class="userNick">별밤지기</td>
+                    <td class="userId">stevenuniverse2013</td>
+                    <td class="userDate">2013.11.04</td>
+                    <td class="userLv">10</td>
+                </tr>
+                <tr>
+                    <td class="userNum"><a href="user-info.html">2222222</a></td>
+                    <td class="userNick">별밤지기</td>
+                    <td class="userId">stevenuniverse2013</td>
+                    <td class="userDate">2013.11.04</td>
+                    <td class="userLv">10</td>
+                </tr>
+                <tr>
+                    <td class="userNum"><a href="user-info.html">3333333</a></td>
+                    <td class="userNick">별밤지기</td>
+                    <td class="userId">stevenuniverse2013</td>
+                    <td class="userDate">2013.11.04</td>
+                    <td class="userLv">10</td>
+                </tr>
+                <tr>
+                    <td class="userNum"><a href="user-info.html">4444444</a></td>
+                    <td class="userNick">별밤지기</td>
+                    <td class="userId">stevenuniverse2013</td>
+                    <td class="userDate">2013.11.04</td>
+                    <td class="userLv">10</td>
+                </tr>
+                <tr>
+                    <td class="userNum"><a href="user-info.html">5555555</a></td>
+                    <td class="userNick">별밤지기</td>
+                    <td class="userId">stevenuniverse2013</td>
+                    <td class="userDate">2013.11.04</td>
+                    <td class="userLv">10</td>
+                </tr>
+                <tr>
+                    <td class="userNum"><a href="user-info.html">6666666</a></td>
+                    <td class="userNick">별밤지기</td>
+                    <td class="userId">stevenuniverse2013</td>
+                    <td class="userDate">2013.11.04</td>
+                    <td class="userLv">10</td>
+                </tr>
+                <tr>
+                    <td class="userNum"><a href="user-info.html">7777777</a></td>
+                    <td class="userNick">별밤지기</td>
+                    <td class="userId">stevenuniverse2013</td>
+                    <td class="userDate">2013.11.04</td>
+                    <td class="userLv">10</td>
+                </tr>
+                <tr>
+                    <td class="userNum"><a href="user-info.html">8888888</a></td>
+                    <td class="userNick">별밤지기</td>
+                    <td class="userId">stevenuniverse2013</td>
+                    <td class="userDate">2013.11.04</td>
+                    <td class="userLv">10</td>
+                </tr>
+                <tr>
+                    <td class="userNum"><a href="user-info.html">9999999</a></td>
+                    <td class="userNick">별밤지기</td>
+                    <td class="userId">stevenuniverse2013</td>
+                    <td class="userDate">2013.11.04</td>
+                    <td class="userLv">10</td>
+                </tr>
+                <tr>
+                    <td class="userNum"><a href="user-info.html">10000000</a></td>
+                    <td class="userNick">별밤지기</td>
+                    <td class="userId">stevenuniverse2013</td>
+                    <td class="userDate">2013.11.04</td>
+                    <td class="userLv">10</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- 하단 편집 버튼 -->
+        <button class="edit">편집</button>
+        <!-- 테이블 하단 페이지 네비게이션 -->
+        <!-- 현재 페이지 번호만 li에 on 클래스 추가 -->
+        <ul class="pager">
+            <li><a href="#"><img src="img/arrow-pager-l.svg" alt="arrow-pager-l.svg"><img src="img/arrow-pager-l.svg"
+                        alt="arrow-pager-l.svg"></a></li>
+            <li><a href="#"><img src="img/arrow-pager-l.svg" alt="arrow-pager-l.svg"></a></li>
+            <li class="on"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#"><img src="img/arrow-pager-r.svg" alt="arrow-pager-r.svg"></a></li>
+            <li><a href="#"><img src="img/arrow-pager-r.svg" alt="arrow-pager-r.svg"><img src="img/arrow-pager-r.svg"
+                        alt="arrow-pager-r.svg"></a></li>
+        </ul>
+    </section>
+</body>
+
+</html>

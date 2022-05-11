@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="6.805" height="11.199" viewBox="0 0 6.805 11.199">
+  <g id="그룹_21" data-name="그룹 21" transform="translate(6.805) rotate(90)">
+    <path id="패스_1" data-name="패스 1" d="M1.05,0a.7.7,0,0,1,.736.736l-.252,6.3a.845.845,0,0,1-.8.8A.7.7,0,0,1,0,7.1L.253.8A.845.845,0,0,1,1.05,0Z" transform="translate(0 1.263) rotate(-45)" fill="#707070"/>
+    <path id="패스_2" data-name="패스 2" d="M.736,0a.845.845,0,0,1,.8.8l.252,6.3a.7.7,0,0,1-.736.736.845.845,0,0,1-.8-.8L0,.736A.7.7,0,0,1,.736,0Z" transform="translate(9.936 0) rotate(45)" fill="#707070"/>
+  </g>
+</svg>

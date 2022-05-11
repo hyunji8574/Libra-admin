@@ -1,0 +1,29 @@
+
+/* 
+Reset Style
+ */
+
+* {
+    margin: 0; padding: 0; border: 0;
+    font-style: normal;
+}
+
+ul, ol, li, dl {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+table {
+    border-spacing: 0;
+}
+
+.clear-both {
+    &::after {
+        display: block;
+        content: "";
+        clear: both;
+    }
+}

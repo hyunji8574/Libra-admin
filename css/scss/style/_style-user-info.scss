@@ -1,0 +1,215 @@
+/*
+
+사용자 정보 레이아웃 스타일시트
+
+*/
+
+// 각 테이블 제목 공통 스타일
+.table-title {
+    // width: fit-content;
+    // IE 호환을 위해 display: table 사용
+    display: table;
+    font-size: 18px;
+    font-weight: 400;
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 25px;
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        // IE
+        -ms-transform: translateY(-50%);
+        // Firefox 6
+        -moz-transform: translate(-50%, 0);
+        width: 2px;
+        height: 20px;
+        background-color: $blue-l;
+    }
+}
+
+// 테이블 필터 공통 스타일
+.filter {
+    float: right;
+    font-size: 13px;
+    margin-top: -50px;
+    input {
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+    label {
+        margin-right: 23px;
+        vertical-align: middle;
+    }
+    .bar {
+        display: inline-block;
+        width: 2px;
+        height: 18px;
+        background-color: $blue-l;
+        margin-right: 23px;
+        vertical-align: middle;
+    }
+}
+
+// 사용자 정보
+// 제외 테이블 공통 스타일
+// .user-info,
+.user-trade,
+.user-ask,
+.user-ban {
+    table {
+        @include setTableStyle(39px, 72px);
+        thead {
+            tr {
+                th {
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+        }
+        tbody {
+            tr {
+                td {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+// 각 테이블 하단 페이저 스타일
+@include setTablePager;
+
+// 사용자 정보
+.user-info {
+    .user-photo {
+        width: 133px;
+        height: 133px;
+        border: 1px solid $blue-l;
+        box-sizing: border-box;
+        float: left;
+        background: url("../img/image-temp.svg") no-repeat center;
+        background-size: 40%;
+        background-color: $blue-ll;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    // 사용자 정보 테이블
+    table {
+        width: calc(100% - 151px);
+        border: 1px solid $blue-ll;
+        box-sizing: border-box;
+        margin-left: 18px;
+        float: left;
+        tr {
+            width: 100%;
+            height: 44px;
+            &:last-child td {
+                border: 0;
+            }
+            td {
+                height: 100%;
+                text-align: left;
+                font-size: 14px;
+                padding-left: 18px;
+                border-bottom: 1px solid $blue-ll;
+                box-sizing: border-box;
+                &:nth-child(odd) {
+                    width: 191px;
+                    background-color: $blue-ll;
+                    border-color: #fff;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}
+
+// 거래 내역
+.user-trade {
+    margin-top: 68px;
+    table {
+        width: 100%;
+        thead {
+            tr {
+                th {
+                    &:nth-child(1) {
+                        width: 9.9%;
+                    }
+                    &:nth-child(2) {
+                        width: 21.6%;
+                    }
+                    &:nth-child(3) {
+                        width: 22.2%;
+                    }
+                    &:nth-child(4) {
+                        width: 10.3%;
+                    }
+                    &:nth-child(5) {
+                        width: 6.8%;
+                    }
+                    &:nth-child(6) {
+                        width: 6.8%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 문의 내역
+.user-ask {
+    margin-top: 68px;
+    table {
+        width: 100%;
+        thead {
+            tr {
+                th {
+                    &:nth-child(1) {
+                        width: 9.9%;
+                    }
+                    &:nth-child(2) {
+                        width: 21.6%;
+                    }
+                    &:nth-child(3) {
+                        width: 25.7%;
+                    }
+                    &:nth-child(4) {
+                        width: 10.2%;
+                    }
+                    &:nth-child(5) {
+                        width: 10.2%;
+                    }                }
+            }
+        }
+    }
+}
+
+// 제재 내역
+.user-ban {
+    margin-top: 68px;
+    table {
+        width: 100%;
+        thead {
+            tr {
+                th {
+                    &:nth-child(1) {
+                        width: 9.9%;
+                    }
+                    &:nth-child(2) {
+                        width: 57.3%;
+                    }
+                    &:nth-child(3) {
+                        width: 10.3%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,149 @@
+/*
+
+공통 스타일 시트
+
+*/
+
+// 팔레트
+$blue: #1d4394;
+
+$blue-d: #0e2a66;
+$blue-dd: #0d1322;
+
+$blue-l: #c7d0e2;
+$blue-ll: #f3f3f7;
+
+$gray: #cccccc;
+
+// 폰트
+
+@font-face {
+    font-family: "Noto Sans KR";
+    font-weight: 300;
+    src: url("../fonts/Noto_Sans_KR/NotoSansKR-Light.otf");
+}
+@font-face {
+    font-family: "Noto Sans KR";
+    font-weight: 400;
+    src: url("../fonts/Noto_Sans_KR/NotoSansKR-Regular.otf");
+}
+@font-face {
+    font-family: "Noto Sans KR";
+    font-weight: 500;
+    src: url("../fonts/Noto_Sans_KR/NotoSansKR-Medium.otf");
+}
+@font-face {
+    font-family: "Noto Sans KR";
+    font-weight: 700;
+    src: url("../fonts/Noto_Sans_KR/NotoSansKR-Bold.otf");
+}
+
+// 믹스인
+
+// 마우스오버시 청색으로 바뀌는 버튼
+@mixin setBtnStyle {
+    background-color: $blue-ll;
+    &:hover {
+        background-color: $blue;
+        color: $blue-ll;
+    }
+}
+
+// 테이블 기본 스타일
+// $th-h = 테이블 헤더부분의 높이
+// $tb-h = 테이블 바디부분의 각 셀 높이
+@mixin setTableStyle($th-h, $tb-h) {
+    thead {
+        width: 100%;
+        tr {
+            width: 100%;
+            height: $th-h;
+            background-color: $blue-ll;
+            th {
+                padding-left: 20px;
+                box-sizing: border-box;
+                height: 100%;
+                text-align: left;
+            }
+        }
+    }
+    tbody {
+        width: 100%;
+        tr {
+            width: 100%;
+            height: $tb-h;
+            background-color: #fff;
+            td {
+                padding-left: 20px;
+                box-sizing: border-box;
+                height: 100%;
+                text-align: left;
+                border-bottom: 1px solid $blue-ll;
+            }
+        }
+    }
+}
+
+// 테이블 하단 페이저 스타일
+@mixin setTablePager() {
+    .pager {
+        display: flex;
+        margin-top: 26px;
+        justify-content: center;
+        li {
+            margin: 0 10px;
+            a {
+                font-size: 14px;
+                color: $gray;
+            }
+            &.on {
+                text-decoration: underline $gray;
+                a {
+                    color: $blue;
+                }
+            }
+        }
+    }
+}
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: "Noto Sans KR";
+    font-size: 16px;
+    font-weight: 300;
+    color: #0f0f0f;
+}
+
+input {
+    font-family: "Noto Sans KR";
+    font-weight: 300;
+    font-size: 14px;
+    border-radius: 2px;
+    &[type="button"]:hover,
+    &[type="submit"]:hover,
+    &[type="reset"]:hover {
+        cursor: pointer;
+    }
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+a {
+    font-size: 16px;
+    color: #0f0f0f;
+}
+
+.content {
+    // width: 100%;
+    margin: 85px 0 0 279px;
+    padding: 60px 75px;
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}

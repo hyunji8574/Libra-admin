@@ -1,0 +1,147 @@
+/*
+
+헤더&메뉴 스타일 시트
+
+*/
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85px;
+    z-index: 500;
+    // padding: 0 75px;
+    // box-sizing: border-box;
+    background-color: $blue-ll;
+    .logo {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 75px;
+        // IE
+        font-size: 33px;
+        font-weight: 700;
+        line-height: 33px;
+        color: $blue;
+        a {
+            font-size: 33px;
+            font-weight: 700;
+            line-height: 33px;
+            color: $blue;
+        }
+    }
+    .address {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 279px;
+        li {
+            float: left;
+            margin-right: 5px;
+            a {
+                font-size: 13px;
+                line-height: 13px;
+                color: rgba(0, 0, 0, 0.459);
+            }
+            &::after {
+                content: ">";
+                display: inline-block;
+                font-size: 13px;
+                color: rgba(0, 0, 0, 0.459);
+                margin-left: 5px;
+            }
+            &:last-child {
+                margin-right: 0;
+                a {
+                    color: $blue-dd;
+                }
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+    .back {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 75px;
+        font-size: 13px;
+        line-height: 13px;
+    }
+}
+
+.lnb {
+    position: fixed;
+    top: 85px;
+    left: 0;
+    width: 279px;
+    height: 100%;
+    z-index: 400;
+    background-color: $blue-dd;
+    padding: 32px 0 0 32px;
+    box-sizing: border-box;
+    .dep1 > li {
+        margin-bottom: 18px;
+        > a {
+            position: relative;
+            font-size: 18px;
+            font-weight: 500;
+            color: $blue-ll;
+            padding-left: 20px;
+            &::before {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%) rotateZ(0);
+                transition: transform 0.2s;
+                display: inline-block;
+                content: "";
+                width: 8px;
+                height: 5px;
+                background: url("../img/arrow-menu.svg") no-repeat center;
+                background-size: contain;
+            }
+        }
+        &.on > a {
+            &::before {
+                transform: translateY(-50%) rotateZ(180deg);
+            }
+        }
+        &.on > .dep2 {
+            max-height: 500px;
+            margin: 15px 25px;
+        }
+        .dep2 {
+            max-height: 0;
+            overflow: hidden;
+            // margin: 15px 25px;
+            margin: 0 25px;
+            transition: all 0.2s ease-out;
+            > li {
+                padding: 3px 0 3px 15px;
+                border-left: 1px solid $blue-d;
+                transition: all 0.2s;
+                > a {
+                    font-size: 15px;
+                    color: rgba(247, 247, 248, 0.522);
+                }
+                &.on {
+                    border-left-color: $blue-l;
+                    > a {
+                        font-size: 15px;
+                        color: $blue-ll;
+                    }
+                }
+                &:hover {
+                    border-left-color: $blue-l;
+                    > a {
+                        font-size: 15px;
+                        color: $blue-ll;
+                    }
+                }
+            }
+        }
+    }
+}

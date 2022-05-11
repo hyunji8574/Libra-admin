@@ -1,0 +1,249 @@
+/*
+
+사용자 목록 레이아웃 스타일 시트
+
+*/
+
+/*
+
+검색 폼
+
+*/
+.search {
+    height: 36px;
+}
+
+#search-form {
+    height: 100%;
+    #search-type {
+        width: 135px;
+        height: 100%;
+        appearance: none;
+        font-size: 14px;
+        padding-left: 20px;
+        box-sizing: border-box;
+        float: left;
+        background: url(../img/arrow-drop.svg) no-repeat 90% center;
+        background-color: $blue-ll;
+        &::-ms-expand {
+            display: none;
+        }
+    }
+    #search-text {
+        width: 703px;
+        height: 100%;
+        border: 1px solid $gray;
+        padding-left: 20px;
+        box-sizing: border-box;
+        float: left;
+    }
+    #search-submit {
+        width: 107px;
+        height: 100%;
+        float: left;
+        background-color: $blue;
+        color: $blue-ll;
+    }
+    #search-reset {
+        width: 147px;
+        height: 100%;
+        float: left;
+        margin-left: 30px;
+        @include setBtnStyle;
+    }
+}
+
+/*
+
+검색 필터 폼
+
+*/
+
+.filter {
+    height: 90px;
+    margin-top: 23px;
+}
+
+#filter-form {
+    height: 100%;
+    #filter-reset {
+        width: 135px;
+        height: 100%;
+        float: left;
+        @include setBtnStyle;
+    }
+    .filter-table {
+        height: 100%;
+        float: left;
+        font-size: 13px;
+        tr {
+            height: 50%;
+            td:nth-child(odd) {
+                padding: 0 23px;
+                font-size: 16px;
+            }
+            input,
+            label,
+            span {
+                margin-right: 9px;
+                vertical-align: middle;
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+            input[type="date"] {
+                width: 133px;
+                height: 21px;
+                border: 1px solid $gray;
+            }
+            input[type="number"] {
+                width: 60px;
+                height: 21px;
+                border: 1px solid $gray;
+            }
+            .table-line {
+                position: relative;
+                padding-right: 23px;
+                &::after {
+                    content: "";
+                    display: block;
+                    width: 1px;
+                    height: 21px;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    // IE
+                    -ms-transform: translate(-50%, 0);
+                    // Firefox 3
+                    -moz-transform: translate(-50%, 0);
+                    right: 0;
+                    background-color: $blue-l;
+                }
+            }
+        }
+    }
+}
+
+/*
+
+테이블 우측상단 페이지 네비게이션
+
+*/
+
+.pager-top {
+    float: right;
+    #pager-top-form {
+        height: 36px;
+        margin-top: -36px;
+        #pageTo {
+            width: 120px;
+            height: 100%;
+            border: 1px solid $gray;
+            text-align: right;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 60px;
+            height: 100%;
+            margin-left: 25px;
+            background-color: $blue-ll;
+        }
+    }
+}
+
+/*
+
+사용자 목록 테이블
+
+*/
+
+.user-table {
+    width: 100%;
+    margin-top: 23px;
+
+    // 테이블 기본스타일 설정
+    @include setTableStyle(51px, 47px);
+
+    thead {
+        // width: 100%;
+        tr {
+            // width: 100%;
+            // height: 51px;
+            // background-color: $blue-ll;
+            th {
+                //     padding-left: 20px;
+                //     box-sizing: border-box;
+                //     height: 100%;
+                //     text-align: left;
+                font-size: 16px;
+                font-weight: 500;
+            }
+            th:nth-child(1) {
+                // width: 191px;
+                width: 9.9%;
+            }
+            th:nth-child(2) {
+                // width: 256px;
+                width: 13.3%;
+            }
+            th:nth-child(3) {
+                // width: 606px;
+                width: 31.6%;
+            }
+            th:nth-child(4) {
+                // width: 260px;
+                width: 13.5%;
+            }
+            th:nth-child(5) {
+                // width: 177px;
+                width: 9.2%;
+            }
+        }
+    }
+
+    // 테이블 아이템
+
+    tbody {
+        tr {
+            // width: 100%;
+            // height: 47px;
+            // background-color: #fff;
+            td {
+                // padding-left: 20px;
+                // box-sizing: border-box;
+                // height: 100%;
+                // text-align: left;
+                font-size: 14px;
+                // border-bottom: 1px solid $blue-ll;
+                a {
+                    font-size: 14px;
+                    color: $blue;
+                    text-decoration: underline $blue-dd;
+                }
+            }
+        }
+    }
+}
+
+/*
+
+하단 편집 버튼 
+
+*/
+
+.edit {
+    width: 103px;
+    height: 36px;
+    margin-top: 23px;
+    background-color: $blue-ll;
+    float: left;
+    @include setBtnStyle;
+}
+
+/*
+
+테이블 하단 페이지 네비게이션
+
+*/
+
+@include setTablePager;

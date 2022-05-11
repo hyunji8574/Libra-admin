@@ -1,0 +1,388 @@
+@charset "UTF-8";
+/*
+
+사용자 정보 통합 스타일 시트
+css > user-info.css 파일로 컴파일됨
+
+*/
+/* 
+Reset Style
+ */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-style: normal; }
+
+ul, ol, li, dl {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+table {
+  border-spacing: 0; }
+
+.clear-both::after {
+  display: block;
+  content: "";
+  clear: both; }
+
+/*
+
+공통 스타일 시트
+
+*/
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 300;
+  src: url("../fonts/Noto_Sans_KR/NotoSansKR-Light.otf"); }
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 400;
+  src: url("../fonts/Noto_Sans_KR/NotoSansKR-Regular.otf"); }
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 500;
+  src: url("../fonts/Noto_Sans_KR/NotoSansKR-Medium.otf"); }
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 700;
+  src: url("../fonts/Noto_Sans_KR/NotoSansKR-Bold.otf"); }
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Noto Sans KR";
+  font-size: 16px;
+  font-weight: 300;
+  color: #0f0f0f; }
+
+input {
+  font-family: "Noto Sans KR";
+  font-weight: 300;
+  font-size: 14px;
+  border-radius: 2px; }
+  input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover {
+    cursor: pointer; }
+
+button:hover {
+  cursor: pointer; }
+
+a {
+  font-size: 16px;
+  color: #0f0f0f; }
+
+.content {
+  margin: 85px 0 0 279px;
+  padding: 60px 75px;
+  box-sizing: border-box; }
+
+.hidden {
+  display: none; }
+
+/*
+
+헤더&메뉴 스타일 시트
+
+*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 85px;
+  z-index: 500;
+  background-color: #f3f3f7; }
+  .header .logo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 75px;
+    font-size: 33px;
+    font-weight: 700;
+    line-height: 33px;
+    color: #1d4394; }
+    .header .logo a {
+      font-size: 33px;
+      font-weight: 700;
+      line-height: 33px;
+      color: #1d4394; }
+  .header .address {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 279px; }
+    .header .address li {
+      float: left;
+      margin-right: 5px; }
+      .header .address li a {
+        font-size: 13px;
+        line-height: 13px;
+        color: rgba(0, 0, 0, 0.459); }
+      .header .address li::after {
+        content: ">";
+        display: inline-block;
+        font-size: 13px;
+        color: rgba(0, 0, 0, 0.459);
+        margin-left: 5px; }
+      .header .address li:last-child {
+        margin-right: 0; }
+        .header .address li:last-child a {
+          color: #0d1322; }
+        .header .address li:last-child::after {
+          display: none; }
+  .header .back {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 75px;
+    font-size: 13px;
+    line-height: 13px; }
+
+.lnb {
+  position: fixed;
+  top: 85px;
+  left: 0;
+  width: 279px;
+  height: 100%;
+  z-index: 400;
+  background-color: #0d1322;
+  padding: 32px 0 0 32px;
+  box-sizing: border-box; }
+  .lnb .dep1 > li {
+    margin-bottom: 18px; }
+    .lnb .dep1 > li > a {
+      position: relative;
+      font-size: 18px;
+      font-weight: 500;
+      color: #f3f3f7;
+      padding-left: 20px; }
+      .lnb .dep1 > li > a::before {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%) rotateZ(0);
+        transition: transform 0.2s;
+        display: inline-block;
+        content: "";
+        width: 8px;
+        height: 5px;
+        background: url("../img/arrow-menu.svg") no-repeat center;
+        background-size: contain; }
+    .lnb .dep1 > li.on > a::before {
+      transform: translateY(-50%) rotateZ(180deg); }
+    .lnb .dep1 > li.on > .dep2 {
+      max-height: 500px;
+      margin: 15px 25px; }
+    .lnb .dep1 > li .dep2 {
+      max-height: 0;
+      overflow: hidden;
+      margin: 0 25px;
+      transition: all 0.2s ease-out; }
+      .lnb .dep1 > li .dep2 > li {
+        padding: 3px 0 3px 15px;
+        border-left: 1px solid #0e2a66;
+        transition: all 0.2s; }
+        .lnb .dep1 > li .dep2 > li > a {
+          font-size: 15px;
+          color: rgba(247, 247, 248, 0.522); }
+        .lnb .dep1 > li .dep2 > li.on {
+          border-left-color: #c7d0e2; }
+          .lnb .dep1 > li .dep2 > li.on > a {
+            font-size: 15px;
+            color: #f3f3f7; }
+        .lnb .dep1 > li .dep2 > li:hover {
+          border-left-color: #c7d0e2; }
+          .lnb .dep1 > li .dep2 > li:hover > a {
+            font-size: 15px;
+            color: #f3f3f7; }
+
+/*
+
+사용자 정보 레이아웃 스타일시트
+
+*/
+.table-title {
+  display: table;
+  font-size: 18px;
+  font-weight: 400;
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 25px; }
+  .table-title::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translate(-50%, 0);
+    width: 2px;
+    height: 20px;
+    background-color: #c7d0e2; }
+
+.filter {
+  float: right;
+  font-size: 13px;
+  margin-top: -50px; }
+  .filter input {
+    margin-right: 8px;
+    vertical-align: middle; }
+  .filter label {
+    margin-right: 23px;
+    vertical-align: middle; }
+  .filter .bar {
+    display: inline-block;
+    width: 2px;
+    height: 18px;
+    background-color: #c7d0e2;
+    margin-right: 23px;
+    vertical-align: middle; }
+
+.user-trade table thead,
+.user-ask table thead,
+.user-ban table thead {
+  width: 100%; }
+  .user-trade table thead tr,
+  .user-ask table thead tr,
+  .user-ban table thead tr {
+    width: 100%;
+    height: 39px;
+    background-color: #f3f3f7; }
+    .user-trade table thead tr th,
+    .user-ask table thead tr th,
+    .user-ban table thead tr th {
+      padding-left: 20px;
+      box-sizing: border-box;
+      height: 100%;
+      text-align: left; }
+
+.user-trade table tbody,
+.user-ask table tbody,
+.user-ban table tbody {
+  width: 100%; }
+  .user-trade table tbody tr,
+  .user-ask table tbody tr,
+  .user-ban table tbody tr {
+    width: 100%;
+    height: 72px;
+    background-color: #fff; }
+    .user-trade table tbody tr td,
+    .user-ask table tbody tr td,
+    .user-ban table tbody tr td {
+      padding-left: 20px;
+      box-sizing: border-box;
+      height: 100%;
+      text-align: left;
+      border-bottom: 1px solid #f3f3f7; }
+
+.user-trade table thead tr th,
+.user-ask table thead tr th,
+.user-ban table thead tr th {
+  font-size: 16px;
+  font-weight: 500; }
+
+.user-trade table tbody tr td,
+.user-ask table tbody tr td,
+.user-ban table tbody tr td {
+  font-size: 14px; }
+
+.pager {
+  display: flex;
+  margin-top: 26px;
+  justify-content: center; }
+  .pager li {
+    margin: 0 10px; }
+    .pager li a {
+      font-size: 14px;
+      color: #cccccc; }
+    .pager li.on {
+      text-decoration: underline #cccccc; }
+      .pager li.on a {
+        color: #1d4394; }
+
+.user-info .user-photo {
+  width: 133px;
+  height: 133px;
+  border: 1px solid #c7d0e2;
+  box-sizing: border-box;
+  float: left;
+  background: url("../img/image-temp.svg") no-repeat center;
+  background-size: 40%;
+  background-color: #f3f3f7; }
+  .user-info .user-photo img {
+    width: 100%;
+    height: auto; }
+
+.user-info table {
+  width: calc(100% - 151px);
+  border: 1px solid #f3f3f7;
+  box-sizing: border-box;
+  margin-left: 18px;
+  float: left; }
+  .user-info table tr {
+    width: 100%;
+    height: 44px; }
+    .user-info table tr:last-child td {
+      border: 0; }
+    .user-info table tr td {
+      height: 100%;
+      text-align: left;
+      font-size: 14px;
+      padding-left: 18px;
+      border-bottom: 1px solid #f3f3f7;
+      box-sizing: border-box; }
+      .user-info table tr td:nth-child(odd) {
+        width: 191px;
+        background-color: #f3f3f7;
+        border-color: #fff;
+        font-weight: 400; }
+
+.user-trade {
+  margin-top: 68px; }
+  .user-trade table {
+    width: 100%; }
+    .user-trade table thead tr th:nth-child(1) {
+      width: 9.9%; }
+    .user-trade table thead tr th:nth-child(2) {
+      width: 21.6%; }
+    .user-trade table thead tr th:nth-child(3) {
+      width: 22.2%; }
+    .user-trade table thead tr th:nth-child(4) {
+      width: 10.3%; }
+    .user-trade table thead tr th:nth-child(5) {
+      width: 6.8%; }
+    .user-trade table thead tr th:nth-child(6) {
+      width: 6.8%; }
+
+.user-ask {
+  margin-top: 68px; }
+  .user-ask table {
+    width: 100%; }
+    .user-ask table thead tr th:nth-child(1) {
+      width: 9.9%; }
+    .user-ask table thead tr th:nth-child(2) {
+      width: 21.6%; }
+    .user-ask table thead tr th:nth-child(3) {
+      width: 25.7%; }
+    .user-ask table thead tr th:nth-child(4) {
+      width: 10.2%; }
+    .user-ask table thead tr th:nth-child(5) {
+      width: 10.2%; }
+
+.user-ban {
+  margin-top: 68px; }
+  .user-ban table {
+    width: 100%; }
+    .user-ban table thead tr th:nth-child(1) {
+      width: 9.9%; }
+    .user-ban table thead tr th:nth-child(2) {
+      width: 57.3%; }
+    .user-ban table thead tr th:nth-child(3) {
+      width: 10.3%; }
